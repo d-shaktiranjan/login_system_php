@@ -1,3 +1,12 @@
+<?php
+
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+  $username=$_POST["uname"];
+  $password=$_POST["pass"];
+  $cpassword=$_POST["cpass"];
+}
+
+?>
 <!doctype html>
 <html lang="en">
 
