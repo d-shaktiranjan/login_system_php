@@ -11,6 +11,7 @@
     <title>Login Page!</title>
   </head>
   <body>
+  <?php include("parts/navbar.php")?>
     <h1>Login Page!</h1>
 
     <!-- Optional JavaScript -->

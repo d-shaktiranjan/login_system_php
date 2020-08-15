@@ -11,6 +11,7 @@
     <title>Welcome Page!</title>
   </head>
   <body>
+  <?php include("parts/navbar.php")?>
     <h1>Welcome Page!</h1>
 
     <!-- Optional JavaScript -->

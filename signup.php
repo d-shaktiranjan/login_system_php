@@ -11,6 +11,7 @@
     <title>Signup Page!</title>
   </head>
   <body>
+  <?php include("parts/navbar.php")?>
     <h1>Signup Page!</h1>
 
     <!-- Optional JavaScript -->
