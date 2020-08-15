@@ -1,9 +1,17 @@
 <?php
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
+  include 'parts/dbconnect.php';
   $username=$_POST["uname"];
   $password=$_POST["pass"];
   $cpassword=$_POST["cpass"];
+
+  if($password==$cpassword){
+    $sql="INSERT INTO `mpls_data` (`username`, `password`, `date`) 
+    VALUES ('$username', '$password', current_timestamp())";
+
+    $result=mysqli_query($conn,$sql);
+  }
 }
 
 ?>
