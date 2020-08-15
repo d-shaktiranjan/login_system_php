@@ -1,6 +1,7 @@
 <?php
 
 $inserted=false;
+$passnotmatch=false;
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
   include 'parts/dbconnect.php';
@@ -16,6 +17,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     if($result){
       $inserted=true;
     }
+  } else{
+    $passnotmatch=true;
   }
 }
 
@@ -43,6 +46,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   if($inserted){
     echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Success!</strong> Your data succesfully submited to our system, Now you can login.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>';
+  }
+
+  if($passnotmatch){
+    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error!</strong> Password & Confirm Password not matched.
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
