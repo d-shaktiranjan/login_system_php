@@ -1,5 +1,7 @@
 <?php
 
+$inserted=false;
+
 if($_SERVER["REQUEST_METHOD"]=="POST"){
   include 'parts/dbconnect.php';
   $username=$_POST["uname"];
@@ -11,6 +13,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     VALUES ('$username', '$password', current_timestamp())";
 
     $result=mysqli_query($conn,$sql);
+    if($result){
+      $inserted=true;
+    }
   }
 }
 
@@ -32,6 +37,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 <body>
   <?php include("parts/navbar.php")?>
+
+  <?php
+
+  if($inserted){
+    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!</strong> Your data succesfully submited to our system, Now you can login.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>';
+  }
+  
+  ?>
 
   <div class="container">
     <form action="signup.php" method="post">
