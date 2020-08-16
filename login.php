@@ -53,7 +53,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         <span aria-hidden="true">&times;</span>
       </button>
     </div>';
-    $alertshow=true;
   }
 
   if($notlogin){
