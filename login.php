@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     $_SESSION['loggedin']=true;
     $_SESSION['username']=$username;
     $login=true;
+    header("location: welcome.php");
   } else{
     session_start();
     session_unset();
@@ -52,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         <span aria-hidden="true">&times;</span>
       </button>
     </div>';
+    $alertshow=true;
   }
 
   if($notlogin){
