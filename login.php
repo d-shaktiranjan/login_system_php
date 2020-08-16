@@ -3,10 +3,6 @@
 $login=false;
 $notlogin=false;
 
-if($_SESSION['loggedin']=true){
-  header("location: welcome.php");
-}
-
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
   include 'parts/dbconnect.php';
   $username=$_POST["uname"];
