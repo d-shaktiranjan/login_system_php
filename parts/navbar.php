@@ -1,5 +1,11 @@
 <?php
 
+$logs=false;
+
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']=true){
+  $logs=true;
+}
+
 echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
 <a class="navbar-brand" href="#">
     <img src="https://amasty.com/media/catalog/product/cache/2/image/265x/9df78eab33525d08d6e5fb8d27136e95/l/o/login-as-customer-for-magento-1_2x.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
@@ -13,15 +19,22 @@ echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <li class="nav-item active">
       <a class="nav-link" href="welcome.php">Welcome<span class="sr-only">(current)</span></a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="signup.php">Signup</a>
+    <li class="nav-item">';
+    
+    if(!$logs){
+      echo '<a class="nav-link" href="signup.php">Signup</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="login.php">Login</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="logout.php">Logout</a>
-  </ul>
+    <li class="nav-item">';
+    }
+
+    if($logs){
+      echo '<a class="nav-link" href="logout.php">Logout</a>';
+    }
+
+  echo '</ul>
 </div>
 </nav>';
 
