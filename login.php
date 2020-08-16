@@ -1,3 +1,25 @@
+<?php
+
+if ($_SERVER["REQUEST_METHOD"]=="POST"){
+  include 'parts/dbconnect.php';
+  $username=$_POST["uname"];
+  $password=$_POST["pass"];
+
+  $sql="SELECT * FROM mpls_data where username='$username' AND password='$password' ";
+  $result=mysqli_query($conn,$sql);
+  $num=mysqli_num_rows($result);
+  if ($num>=1){
+    session_start();
+    $_SESSION['loggedin']=true;
+    $_SESSION['username']=$username;
+  } else{
+    session_start();
+    session_unset();
+    session_destroy();
+  }
+}
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -14,10 +36,11 @@
 </head>
 
 <body>
+
   <?php include("parts/navbar.php")?>
 
   <div class="container">
-    <form>
+    <form action="login.php" method="post">
     <h1>Login Here</h1>
       <div class="form-group">
         <label for="exampleInputEmail1">User Name</label>
