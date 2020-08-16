@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     $_SESSION['loggedin']=true;
     $_SESSION['username']=$username;
     $login=true;
-    header("location: welcome.php");
+    header("location: index.php");
   } else{
     session_start();
     session_unset();
