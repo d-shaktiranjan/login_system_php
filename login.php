@@ -1,5 +1,8 @@
 <?php
 
+$login=false;
+$notlogin=false;
+
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
   include 'parts/dbconnect.php';
   $username=$_POST["uname"];
@@ -12,10 +15,12 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     session_start();
     $_SESSION['loggedin']=true;
     $_SESSION['username']=$username;
+    $login=true;
   } else{
     session_start();
     session_unset();
     session_destroy();
+    $notlogin=false;
   }
 }
 
@@ -38,6 +43,26 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 <body>
 
   <?php include("parts/navbar.php")?>
+
+  <?php
+    if($login){
+      echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success!</strong> Now you are logged in to the system.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>';
+  }
+
+  if($notlogin){
+    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error!</strong> Sorry, invalid username or password.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>';
+  }
+?>
 
   <div class="container">
     <form action="login.php" method="post">
