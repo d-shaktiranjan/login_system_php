@@ -12,7 +12,11 @@
   </head>
   <body>
   <?php include("parts/navbar.php")?>
-    <h1>Welcome Page!</h1>
+   
+   <div class="container">
+   <h1 class="display-1">Welcome Page</h1>
+   <h1 class="display-3">Add your content here</h1>
+   </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
