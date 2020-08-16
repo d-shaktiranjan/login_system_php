@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+if($_SESSION['loggedin']!=true){
+  header("location: login.php");
+}
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,7 +24,6 @@
    <div class="container">
    <h1 class="display-1">Welcome Page</h1>
    <h1 class="display-3">Hey <?php 
-   session_start();
    echo $_SESSION['username']?></h1>
    <h1 class="display-3">Add your content here</h1>
    </div>
