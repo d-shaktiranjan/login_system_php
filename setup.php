@@ -46,13 +46,27 @@ if(!$connected){
 <body>
 
   <?php
-    echo '<div class="alert alert-success" role="alert">
-    <h4 class="alert-heading">Well done!</h4>
-    <p>1:- Database Created</p>
-    <p>2:- Table created</p>
-    <hr>
-    <p class="mb-0">Now you connectd to DB.</p>
-    </div>';
+    if($connected){
+        echo '<div class="alert alert-success" role="alert">
+      <h4 class="alert-heading">Well done!</h4>
+      <p>1:- Database Created</p>
+      <p>2:- Table created</p>
+      <hr>
+      <p class="mb-0">Now you connectd to DB.</p>
+      </div>';
+    } else{
+      echo '<div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Sorry!</h4>
+        <p>Follow these steps to fix</p>
+        <p>1:- Install XAMPP</p>
+        <p>2:- If already installed then open XAMPP & start Apache, MySQL</p>
+        <p>3:- If you follow the above things then refresh the page"</p>
+        <p>4:- Still Error then open php MyAdmin and delete mpls named database</p>
+        <p>5:- Now refresh the page</p>
+        <hr>
+        <p class="mb-0">Now you connectd to DB.</p>
+        </div>';
+    }
   ?>
 
   <!-- Optional JavaScript -->
