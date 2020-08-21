@@ -22,5 +22,7 @@ if(!$connected){
 
     $create_table=mysqli_query($conndb,$sql);
     $connected=true;
+} else{
+    header("location: index.php");
 }
 ?>
