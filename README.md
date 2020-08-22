@@ -1,4 +1,4 @@
-# Login_System php (Using php & BS)
+# Login System (Using php & BS)
 
 # How to clone & setup?
 ## 1:- Open Powersheel or cmd & follow the command
@@ -25,4 +25,6 @@ Link:- http://localhost/mp_ls/setup.php
 1:- Basic HTML  
 2:- You have to know how to use Bootstarp  
 3:- Common Sense (it's very important)  
+
+## Status:- WIP (Work-in-Progress)
 ![php](https://hackernoon.com/drafts/xl192gpf.png)
