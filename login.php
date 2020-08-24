@@ -8,15 +8,20 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
   $username=$_POST["uname"];
   $password=$_POST["pass"];
 
-  $sql="SELECT * FROM mpls_data where username='$username' AND password='$password' ";
+  $sql="SELECT * FROM mpls_data where username='$username'";
   $result=mysqli_query($conn,$sql);
   $num=mysqli_num_rows($result);
   if ($num>=1){
-    session_start();
-    $_SESSION['loggedin']=true;
-    $_SESSION['username']=$username;
-    $login=true;
-    header("location: index.php");
+    while($row=mysqli_fetch_assoc($result)){
+      if(password_verify($password,$row['password'])){
+        $login=true;
+        session_start();
+        $_SESSION['loggedin']=true;
+        $_SESSION['username']=$username;
+        
+        header("location: index.php");
+      }
+    }
   } else{
     session_start();
     session_unset();

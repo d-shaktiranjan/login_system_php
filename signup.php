@@ -10,8 +10,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   $cpassword=$_POST["cpass"];
 
   if($password==$cpassword){
+    $hash_pass=password_hash($password,PASSWORD_DEFAULT);
     $sql="INSERT INTO `mpls_data` (`username`, `password`, `date`) 
-    VALUES ('$username', '$password', current_timestamp())";
+    VALUES ('$username', '$hash_pass', current_timestamp())";
 
     $result=mysqli_query($conn,$sql);
     if($result){
